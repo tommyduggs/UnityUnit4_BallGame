@@ -1,0 +1,61 @@
+Unity Marble Blast Game
+-----------------------
+
+[X] Add a texture to the player
+
+[X] Move camera with mouse
+
+[X] Move player in direction of camera
+
+[X] Only rotate unless right click is held, if so then go up and down
+
+[X] Limit camera movement along y axis
+
+[ ] Allow player to move slightly while in air
+
+[ ] Make movement rotate the player
+
+[ ] Make sure if player is rotating and bounces, bounces in direction of rotation
+
+[ ] Add bounce sound
+
+[ ] Add jump powerup
+
+[ ] Add reduced gravity (gyrocopter) powerup
+
+[ ] Create a powerup script that makes it disappear when picked up and reappear a bit after 
+
+[ ] Play with physics until it's as marble blast-y as you'd like
+
+
+
+Project 4 To Do
+---------------
+
+[X] (Easy) Harder Enemies
+
+[ ] (Medium) Homing Missles
+	[ ] Create a different color powerup prefab
+	[ ] Create parameterized coroutine (for time before spawning) that spawns the new prefab
+	[ ] Random number when a new wave spawns and call the new coroutine
+	[ ] Create a new powerup indicator for the new powerup
+	[ ] Add a tag for the new powerup, trigger it properly and show it
+	[ ] Get rid of the powerup when space bar is pressed
+	[ ] Create some sort of rocket prefab
+	[ ] Create a rocket script that takes in a direction vector and moves in that direction
+	[ ] Instantiate a rocket for each enemy when spacebar is pressed and pass the direction vectors
+
+[ ] (Hard) Smash Attack
+	[ ] Create a different color powerup prefab
+	[ ] Create parameterized coroutine (for time before spawning) that spawns the new prefab
+	[ ] Add logic that randomly determines how many powerups to spawn in a round (1-3?)
+	[ ] Create a new powerup indicator for the powerup
+	[ ] Add a tag for the new powerup, trigger it properly and show it
+	[ ] Get rid of the powerup when space bar is pressed
+	[ ] Make the player jump and smash back down
+	[ ] Add a function to the enemy class that adds force away from player
+	[ ] Call the function for all enemies
+	[ ] Incorporate the player distance in a way that increases force when the enemy is closer 
+
+[ ] (Expert) Boss Battle
+	[-] TBD
