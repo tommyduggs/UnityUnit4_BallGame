@@ -379,6 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupIndicator: {fileID: 2136080440}
   misslePowerupIndicator: {fileID: 361872189}
+  misslePrefab: {fileID: 4298951176619569861, guid: f47f13af1c9f4f44d8b4c6b38aa24c20, type: 3}
   speed: 15
   hasPowerup: 0
 --- !u!1001 &843389368
