@@ -7,6 +7,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject harderEnemyPrefab;
     public GameObject powerupPrefab;
+    public GameObject misslePowerupPrefab;
     private float spawnRange = 6.0f;
     private int enemyCount;
     private int waveNumber = 0;
@@ -25,6 +26,9 @@ public class SpawnManager : MonoBehaviour
             waveNumber++;
             SpawnEnemyWave(waveNumber);
             Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
+
+            int missleWaitTime = Random.Range(0,5);
+            StartCoroutine(SpawnMisslePowerup(missleWaitTime));
         }
     }
 
@@ -48,5 +52,11 @@ public class SpawnManager : MonoBehaviour
             
             Instantiate(enemyToSpawn, GenerateSpawnPosition(), enemyToSpawn.transform.rotation);
         }
+    }
+
+    private IEnumerator SpawnMisslePowerup(int timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        Instantiate(misslePowerupPrefab, GenerateSpawnPosition(), misslePowerupPrefab.transform.rotation);
     }
 }

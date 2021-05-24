@@ -34,16 +34,17 @@ Project 4 To Do
 
 [X] (Easy) Harder Enemies
 
-[ ] (Medium) Homing Missles
-	[ ] Create a different color powerup prefab
-	[ ] Create parameterized coroutine (for time before spawning) that spawns the new prefab
-	[ ] Random number when a new wave spawns and call the new coroutine
-	[ ] Create a new powerup indicator for the new powerup
-	[ ] Add a tag for the new powerup, trigger it properly and show it
-	[ ] Get rid of the powerup when space bar is pressed
-	[ ] Create some sort of rocket prefab
-	[ ] Create a rocket script that takes in a direction vector and moves in that direction
-	[ ] Instantiate a rocket for each enemy when spacebar is pressed and pass the direction vectors
+[X] (Medium) Homing Missles
+	[X] Create a different color powerup prefab
+	[X] Create parameterized coroutine (for time before spawning) that spawns the new prefab
+	[X] Random number when a new wave spawns and call the new coroutine
+	[X] Create a new powerup indicator for the new powerup
+	[X] Add a tag for the new powerup, trigger it properly and show it
+	[X] Get rid of the powerup when space bar is pressed
+	[X] Create some sort of rocket prefab
+	[X] Create a rocket script that takes in an enemy object and moves in that direction
+	[X] Instantiate a rocket for each enemy when spacebar is pressed and pass the direction vectors
+	[?] Create exploding particle effect when rocket collides with enemy
 
 [ ] (Hard) Smash Attack
 	[ ] Create a different color powerup prefab

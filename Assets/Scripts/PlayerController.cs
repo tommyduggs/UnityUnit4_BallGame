@@ -8,10 +8,13 @@ public class PlayerController : MonoBehaviour
     private GameObject focalPoint;
     private float powerupStrength = 15.0f;
     public GameObject powerupIndicator;
+    public GameObject misslePowerupIndicator;
+    public GameObject misslePrefab;
     public float speed = 15.0f;
     public bool hasPowerup = false;
     private GameObject mainCamera;
     private int powerUpStack = 0; // Using this counter to allow extending powerup time when stacking
+    private bool hasMissles = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +27,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space) && hasMissles)
+        {
+            FireMissles();
+        }
     }
 
     private void FixedUpdate()
@@ -39,6 +45,7 @@ public class PlayerController : MonoBehaviour
         }
 
         powerupIndicator.transform.position = transform.position - new Vector3(0, 0.5f, 0);
+        misslePowerupIndicator.transform.position = transform.position - new Vector3(0, 0.5f, 0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,6 +58,12 @@ public class PlayerController : MonoBehaviour
             powerupIndicator.SetActive(true);
             StartCoroutine(PowerupCountdownRoutine());
         }
+        if(other.CompareTag("MisslePowerup"))
+        {
+            Destroy(other.gameObject);
+            misslePowerupIndicator.SetActive(true);
+            hasMissles = true;
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -61,6 +74,21 @@ public class PlayerController : MonoBehaviour
             Vector3 awayFromPlayer = (other.gameObject.transform.position - transform.position).normalized;
 
             enemyRB.AddForce(awayFromPlayer * powerupStrength, ForceMode.Impulse);
+        }
+    }
+
+    private void FireMissles()
+    {
+        hasMissles = false;
+        
+        misslePowerupIndicator.SetActive(false);
+
+        Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
+
+        for(int i = 0; i < enemies.Length; i++)
+        {
+            GameObject missle = Instantiate(misslePrefab,transform.position,misslePrefab.transform.rotation);
+            missle.GetComponent<Missle>().enemy = enemies[i].gameObject;
         }
     }
 
